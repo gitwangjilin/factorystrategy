@@ -1,6 +1,6 @@
-package com.wjl.strategyfactory.factory;
+package com.wjl.strategyfactory.factorys.factory;
 
-import com.wjl.strategyfactory.service.NumService;
+import com.wjl.strategyfactory.factorys.service.NumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

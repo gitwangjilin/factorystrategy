@@ -1,9 +1,9 @@
-package com.wjl.strategyfactory.service;
+package com.wjl.strategyfactory.factorys.constant;
 
 /*************************************************************************
  ******
  * - Copyright (c) 2020 redshield.com
- * - File Name: NumService
+ * - File Name: Type
  * - @Author: WangJiLIn
  * - Description:
  * 接⼝描述
@@ -14,6 +14,8 @@ package com.wjl.strategyfactory.service;
  * 2020/11/4   WangJiLin     Create the current class
  *************************************************************************
  ******/
-public interface NumService {
-    public String getNum();
+public class Type {
+    public static final String NUM_0 = "0" ;
+    public static final String NUM_1 = "1" ;
+    public static final String NUM_2 = "2" ;
 }

@@ -1,6 +1,6 @@
 package com.wjl.strategyfactory;
 
-import com.wjl.strategyfactory.factory.NumFactory;
+import com.wjl.strategyfactory.factorys.factory.NumFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,13 +1,13 @@
-package com.wjl.strategyfactory.service.impl;
+package com.wjl.strategyfactory.factorys.service.impl;
 
-import com.wjl.strategyfactory.constant.Type;
-import com.wjl.strategyfactory.service.NumService;
+import com.wjl.strategyfactory.factorys.constant.Type;
+import com.wjl.strategyfactory.factorys.service.NumService;
 import org.springframework.stereotype.Component;
 
 /*************************************************************************
  ******
  * - Copyright (c) 2020 redshield.com
- * - File Name: NumServiceOne
+ * - File Name: NumServiceTwo
  * - @Author: WangJiLIn
  * - Description:
  * 接⼝描述
@@ -18,10 +18,10 @@ import org.springframework.stereotype.Component;
  * 2020/11/4   WangJiLin     Create the current class
  *************************************************************************
  ******/
-@Component(Type.NUM_0)
-public class NumServiceOne implements NumService {
+@Component(Type.NUM_1)
+public class NumServiceTwo implements NumService {
     @Override
     public String getNum() {
-    return "000000000000000000";
+        return "1111111111111";
     }
 }

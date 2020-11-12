@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!--singleton Bean以单例方式存在，默认值-->
+    <!--prototype 每次从容器中调用Bean时，都返回一个新的实例，即每次调用getBean()时，相当于执行newXxxBean()-->
+    <!--<bean id="helloWorld" class="com.wjl.strategyfactory.spring.HelloWorld" scope="prototype">-->
+        <!--&lt;!&ndash;<property name="message" value="Hello World!"/>&ndash;&gt;-->
+    <!--</bean>-->
+    <bean id="helloWorld"
+          class="com.wjl.strategyfactory.spring.HelloWorld"
+          init-method="init" destroy-method="destroy">
+        <property name="message" value="Hello World!"/>
+    </bean>
+</beans>

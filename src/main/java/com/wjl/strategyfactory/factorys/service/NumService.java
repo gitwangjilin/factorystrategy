@@ -1,12 +1,9 @@
-package com.wjl.strategyfactory.Controller;
-
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+package com.wjl.strategyfactory.factorys.service;
 
 /*************************************************************************
  ******
  * - Copyright (c) 2020 redshield.com
- * - File Name: Clent
+ * - File Name: NumService
  * - @Author: WangJiLIn
  * - Description:
  * 接⼝描述
@@ -17,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
  * 2020/11/4   WangJiLin     Create the current class
  *************************************************************************
  ******/
-@RestController
-public class ClentController {
-
+public interface NumService {
+    public String getNum();
 }
