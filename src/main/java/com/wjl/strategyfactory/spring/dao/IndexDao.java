@@ -3,6 +3,8 @@ package com.wjl.strategyfactory.spring.dao;
 import org.springframework.context.annotation.Description;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.PostConstruct;
+
 /*************************************************************************
  ******
  * - Copyright (c) 2021 redshield.com
@@ -20,6 +22,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 //@Description("dao") processCommonDefinitionAnnotations 扫描注解
 public class IndexDao {
+    public IndexDao(){
+        System.out.println("构造方法");
+    }
+    @PostConstruct
+    public void init(){
+        System.out.println("init");
+    }
     public  void  query(){
         System.out.println("dao获取到了");
     }

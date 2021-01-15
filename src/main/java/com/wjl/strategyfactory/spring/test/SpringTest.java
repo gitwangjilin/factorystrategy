@@ -21,11 +21,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class SpringTest {
     public static void main(String[] args) {
         //初始化bean
-//        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Appconfig.class);
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Appconfig.class);
 //        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(IndexDao.class);
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        applicationContext.register(IndexDao.class);
-        applicationContext.refresh();
+//        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+//        applicationContext.register(IndexDao.class);
+//        applicationContext.refresh();
         IndexDao bean = applicationContext.getBean(IndexDao.class);
         bean.query();
     }
