@@ -22,7 +22,45 @@ applicationContext.refresh();
 
 this.prepareBeanFactory(beanFactory); 注册和扩展
 
-beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this)); 扩展入口
+beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this)); 添加一个后置处理器
 
-ApplicationContextAwareProcessor 继承BeanPostProcessor： 后置处理器
+ApplicationContextAwareProcessor 继承BeanPostProcessor（接口）： 后置处理器
 
+BeanPostProcessor：
+
+​	是spring  
+
+### 第三节
+
+nomal
+
+importSelect
+
+ImportBeanDefinitionRegistrat
+
+
+
+@MapperScan(把接口变成一个对象，在spring容器中) 扫描mapper
+
+### 第四节  
+
+判断当前bd中存在的类是不是加了@Configruation注解
+
+如果存在spring认为是**全注解**
+
+isFullConfigurationCandidate
+
+​	设置为full
+
+判断是否加了以下注解 为isLite
+
+component  componentscan  import   importresource
+
+不存在configuration注解。spring则认为是一个**部分注解类**
+
+isLiteConfigurationCandidate
+
+```java
+指定配置文件
+//@PropertySource(factory = YamlPropertySourceFactory.class, value = "classpath:sysconfig.yml")
+```

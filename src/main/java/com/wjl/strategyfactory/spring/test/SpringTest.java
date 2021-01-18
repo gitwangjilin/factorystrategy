@@ -1,7 +1,9 @@
 package com.wjl.strategyfactory.spring.test;
 
 import com.wjl.strategyfactory.spring.app.Appconfig;
+import com.wjl.strategyfactory.spring.beanPostProcessor.MyBeanfactoryPostProcessor;
 import com.wjl.strategyfactory.spring.dao.IndexDao;
+import com.wjl.strategyfactory.spring.dao.IndexDao1;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.beans.factory.support.AutowireCandidateResolver;
@@ -38,14 +40,19 @@ public class SpringTest {
          *
          */
         //初始化bean
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Appconfig.class);
+//        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Appconfig.class);
 //        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(IndexDao.class);
-//        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-//        applicationContext.register(IndexDao.class);
-//        applicationContext.refresh();
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+        applicationContext.addBeanFactoryPostProcessor(new MyBeanfactoryPostProcessor());
+        applicationContext.register(IndexDao.class);
+        applicationContext.refresh();
         IndexDao bean = applicationContext.getBean(IndexDao.class);
+        IndexDao bean1 = applicationContext.getBean(IndexDao.class);
         bean.query();
+        System.out.println(bean.hashCode()+"==="+bean1.hashCode());
     }
+
+
 /*  DefaultListableBeanFactory
     @Nullable
     private static Class<?> javaxInjectProviderClass;
