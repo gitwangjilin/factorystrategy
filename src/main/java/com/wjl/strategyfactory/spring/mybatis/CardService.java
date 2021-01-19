@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
  * 2021/1/17   WangJiLin     Create the current class
  *************************************************************************
  ******/
-@Component
+//@Component
 public class CardService {
     @Autowired
     CardDao cardDao;

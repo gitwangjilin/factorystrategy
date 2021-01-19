@@ -1,7 +1,11 @@
 package com.wjl.strategyfactory.spring.app;
 
+import com.wjl.strategyfactory.spring.beanPostProcessor.MyImportSelector;
+import com.wjl.strategyfactory.spring.eanble.Eanble;
+import com.wjl.strategyfactory.spring.mybatis.MyImportSelect;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 /*************************************************************************
  ******
@@ -19,5 +23,6 @@ import org.springframework.context.annotation.Configuration;
  ******/
 @Configuration
 @ComponentScan("com.wjl.strategyfactory.spring")
+//@Eanble
 public class Appconfig {
 }
