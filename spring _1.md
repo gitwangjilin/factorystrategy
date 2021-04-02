@@ -1,66 +1,57 @@
-## spring源码1
+## spring源码第一节
 
-AnnotationConfigApplicationContext（测试化环境） 继承 GenericApplicationContext 
-
-
-
-AnnotatedBeanDefinitionReader 读取被加了注解的类别实例化的
-
-ClassPathBeanDefinitionScanner 扫描实例化bean
-
-BeanDefinitionRegistry 注册器（将类转换成spring识别的key-value）
-
-BeanDefinition 描述bean
-
-Annotated 注解
-
-processCommonDefinitionAnnotations 校验是否加了注解
-
-BeanDefinitionHolder
-
-applicationContext.refresh();
-
-this.prepareBeanFactory(beanFactory); 注册和扩展
-
-beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this)); 添加一个后置处理器
-
-ApplicationContextAwareProcessor 继承BeanPostProcessor（接口）： 后置处理器
-
-BeanPostProcessor：
-
-​	是spring  
-
-### 第三节
-
-nomal
-
-importSelect
-
-ImportBeanDefinitionRegistrat
-
-
-
-@MapperScan(把接口变成一个对象，在spring容器中) 扫描mapper
-
-### 第四节  
-
-判断当前bd中存在的类是不是加了@Configruation注解
-
-如果存在spring认为是**全注解**
-
-isFullConfigurationCandidate
-
-​	设置为full
-
-判断是否加了以下注解 为isLite
-
-component  componentscan  import   importresource
-
-不存在configuration注解。spring则认为是一个**部分注解类**
-
-isLiteConfigurationCandidate
+**1.初始化spring**
 
 ```java
-指定配置文件
-//@PropertySource(factory = YamlPropertySourceFactory.class, value = "classpath:sysconfig.yml")
+
 ```
+
+##### 2.AnnotationConfigApplicationContext  注释配置应用程序上下文
+
+（1）入口
+
+```java
+    //注释配置应用程序上下文
+AnnotationConfigApplicationContext applicationContext = new          AnnotationConfigApplicationContext(Appconfig.class)
+	public AnnotationConfigApplicationContext(Class... componentClasses) {
+    	//1
+        this();//调用父类构造方法 AnnotationConfigApplicationContext
+        //2
+    	this.register(componentClasses);
+        //3
+    	this.refresh();
+    }
+	1.1
+    public AnnotationConfigApplicationContext() {
+        //1.1.1
+        //创建一个读取注解的bean定义读取器
+        this.reader = new AnnotatedBeanDefinitionReader(this);
+         //1.1.2
+        this.scanner = new ClassPathBeanDefinitionScanner(this);
+    }
+1.1.1 带注释的Bean定义读取器
+public class AnnotatedBeanDefinitionReader {
+    private final BeanDefinitionRegistry registry;
+    private BeanNameGenerator beanNameGenerator;
+    private ScopeMetadataResolver scopeMetadataResolver;
+    private ConditionEvaluator conditionEvaluator;
+
+    public AnnotatedBeanDefinitionReader(BeanDefinitionRegistry registry) {
+        this(registry, getOrCreateEnvironment(registry));
+    }
+
+    public AnnotatedBeanDefinitionReader(BeanDefinitionRegistry registry, Environment environment) {
+        this.beanNameGenerator = AnnotationBeanNameGenerator.INSTANCE;
+        this.scopeMetadataResolver = new AnnotationScopeMetadataResolver();
+        Assert.notNull(registry, "BeanDefinitionRegistry must not be null");
+        Assert.notNull(environment, "Environment must not be null");
+        this.registry = registry;
+        this.conditionEvaluator = new ConditionEvaluator(registry, environment, (ResourceLoader)null);
+        AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);
+}
+
+```
+
+![]()
+
+![image-20210402164547949](C:\Users\Chinadaas\test\factorystrategy\src\main\java\com\wjl\strategyfactory\spring1\image\1617353193.jpg)
